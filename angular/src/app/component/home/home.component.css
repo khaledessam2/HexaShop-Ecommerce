@@ -1,0 +1,45 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.hexa-purchase{
+  background-image: url('../../../assets/woman/unsplash_dP6g1YJWQcA\ \(8\).png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .purchase-box{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 100;
+  }
+}
+.hexa-purchase-one{
+  background-image: url(../../../assets//woman/unsplash_dP6g1YJWQcA\ \(14\).png);
+}
+.hexa-purchase-two{
+  background-image: url(../../../assets/men/unsplash_dP6g1YJWQcA\ \(6\).png);
+}
+.hexa-purchase-three{
+  background-image: url(../../../assets/kid/unsplash_dP6g1YJWQcA\ \(9\).png);
+}
+
+.button{
+  border: none;
+  padding: 15px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+.overflow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.422);
+}

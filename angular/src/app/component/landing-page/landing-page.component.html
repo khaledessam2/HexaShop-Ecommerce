@@ -1,0 +1,118 @@
+<div>
+  <div class="row text-light justify-content-center" style="height: 563px">
+    <div class="col-6 hexa-purchase">
+      <div class="overflow"></div>
+      <div class="d-flex flex-column purchase-box">
+        <h1>We Are Hexashop</h1>
+        <span class="my-3">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry
+        </span>
+        <button class="button">Purchase Now</button>
+      </div>
+    </div>
+    <div class="col-5 row gap-4 justify-content-center">
+      <div class="col-5 hexa-purchase hexa-purchase-one">
+        <div class="overflow"></div>
+        <div class="d-flex flex-column purchase-box w-100 text-center">
+          <h1>Women</h1>
+          <span class="my-3"> Lorem Ipsum is simply dummy </span>
+          <button class="button w-75 mx-auto" routerLink="/womans">
+            Discover More
+          </button>
+        </div>
+      </div>
+      <div class="col-5 hexa-purchase hexa-purchase-two">
+        <div class="overflow"></div>
+        <div class="d-flex flex-column purchase-box w-100 text-center">
+          <h1>Men</h1>
+          <span class="my-3"> Lorem Ipsum is simply dummy </span>
+          <button class="button w-75 mx-auto" routerLink="/mens">
+            Discover More
+          </button>
+        </div>
+      </div>
+      <div class="col-5 hexa-purchase hexa-purchase-three">
+        <div class="overflow"></div>
+        <div class="d-flex flex-column purchase-box w-100 text-center">
+          <h1>Kids</h1>
+          <span class="my-3"> Lorem Ipsum is simply dummy </span>
+          <button class="button w-75 mx-auto" routerLink="/kids">
+            Discover More
+          </button>
+        </div>
+      </div>
+      <div class="col-5 hexa-purchase">
+        <div class="overflow"></div>
+        <div class="d-flex flex-column purchase-box w-100 text-center">
+          <h1>Accessories</h1>
+          <span class="my-3"> Lorem Ipsum is simply dummy </span>
+          <button class="button w-75 mx-auto">Discover More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- mens section -->
+  <div class="mx-5 px-3 mt-5">
+    <h2>Men’s Latest</h2>
+    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+    <div class="slider">
+      <div class="card mt-2" style="width: 18rem;" *ngFor="let men of mensClothes">
+        <img [src]="men.Image" class="card-img-top" height="300px">
+        <div class="card-body p-3">
+          <h5 class="card-title mb-3">{{men.name}}</h5>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="card-text">${{men.price}}</p>
+            <div class="d-flex align-items-center gap-2">
+              <mat-icon style="color: red;">favorite</mat-icon>
+              <mat-icon>shopping_cart</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- womans section -->
+  <div class="mx-5 px-3 mt-5">
+    <h2>Woman's Latest</h2>
+    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+    <div class="slider">
+      <div class="card mt-2" style="width: 18rem;" *ngFor="let woman of womansClothes">
+        <img [src]="woman.Image" class="card-img-top" height="300px">
+        <div class="card-body p-3">
+          <h5 class="card-title mb-3">{{woman.name}}</h5>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="card-text">${{woman.price}}</p>
+            <div class="d-flex align-items-center gap-2">
+              <mat-icon style="color: red;">favorite</mat-icon>
+              <mat-icon>shopping_cart</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Kid's Section -->
+  <div class="mx-5 px-3 mt-5">
+    <h2>Kid's Latest</h2>
+    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+    <div class="slider">
+      <div class="card mt-2" style="width: 18rem;" *ngFor="let Kid of kidsClothes">
+        <img [src]="Kid.Image" class="card-img-top" height="300px">
+        <div class="card-body p-3">
+          <h5 class="card-title mb-3">{{Kid.name}}</h5>
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="card-text">${{Kid.price}}</p>
+            <div class="d-flex align-items-center gap-2">
+              <mat-icon style="color: red;">favorite</mat-icon>
+              <mat-icon>shopping_cart</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

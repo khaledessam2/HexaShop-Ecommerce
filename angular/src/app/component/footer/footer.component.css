@@ -1,0 +1,35 @@
+.hexagon {
+  width: 60px;
+  height: 30px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hexagon::before,
+.hexagon::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+}
+
+.hexagon::before {
+  bottom: 100%;
+  border-bottom: 20px solid white;
+}
+
+.hexagon::after {
+  top: 100%;
+  border-top: 20px solid white;
+}
+
+.hexagon span {
+  color: black;
+  font-size: 40px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
