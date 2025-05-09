@@ -9,19 +9,33 @@ import { categoury } from '../../services/categoury.service';
 })
 export class LandingPageComponent implements OnInit {
   constructor(private clothesService:categoury){}
+  loadData:boolean=false
   mensClothes:any=[]
   womansClothes:any=[]
   kidsClothes:any=[]
   ngOnInit(): void {
-    this.clothesService.clothes.filter((e)=>{
-      if(e.categoury.includes("mens")){
-        this.mensClothes.push(e)
-      }else if(e.categoury.includes("womans")){
-        this.womansClothes.push(e)
-      }else{
-        this.kidsClothes.push(e)
-      }
+    this.clothesService.getProducts().subscribe({
+      next:(response)=> {
+        this.loadData=true
+        response.forEach((e)=>{
+          if(e.category.includes("mens")){
+            this.mensClothes.push(e)
+          }else if(e.category.includes("womans")){
+            this.womansClothes.push(e)
+          }else if(e.category.includes("kids")){
+            this.kidsClothes.push(e)
+          }
+        })
+      },
     })
-    console.log(this.mensClothes)
+    this.loadData=false
+
+    setTimeout(() => {
+      const fromLeftElements = document.querySelectorAll('.from-left');
+      const fromRightElements = document.querySelectorAll('.from-right');
+
+      fromLeftElements.forEach(el => el.classList.add('show'));
+      fromRightElements.forEach(el => el.classList.add('show'));
+    }, 100);
   }
 }

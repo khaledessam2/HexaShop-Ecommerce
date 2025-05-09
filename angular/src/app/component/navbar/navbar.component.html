@@ -1,5 +1,5 @@
-<div class="py-3 pe-3" style="background-color: rgb(208, 204, 204);">
-  <div class="d-flex align-items-center justify-content-between" style="margin: 0 110px;">
+<div class="py-3 pe-3" style="background-color: rgb(225, 221, 221);">
+  <div class="d-flex align-items-center justify-content-between flex-column flex-lg-row gap-4 container mx-auto">
     <div class="d-flex align-items-center gap-2 my-2" routerLink="/landing" role="button">
       <div class="hexagon">
         <span>H</span>
@@ -9,13 +9,15 @@
         <span>onlineShop</span>
       </div>
     </div>
-    <div class="d-flex align-items-center gap-4 fs-5">
-      <a routerLink="/home" routerLinkActive="text-danger">Home</a>
-      <a routerLink="/mens" routerLinkActive="text-danger">Men's</a>
-      <a routerLink="/womans" routerLinkActive="text-danger">Woman's</a>
-      <a routerLink="/kids" routerLinkActive="text-danger">Kid's</a>
-      <a routerLink="/aboutus" routerLinkActive="text-danger">About Us</a>
-      <a routerLink="/contact" routerLinkActive="text-danger">Contact</a>
+    <div class="d-flex align-items-center gap-4 fs-5 flex-wrap justify-content-center">
+      <a routerLink="/home" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">Home</a>
+      <a routerLink="/mens" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">Men's</a>
+      <a routerLink="/womans" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">Women's</a>
+      <a routerLink="/kids" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">Kid's</a>
+      <a routerLink="/about-us" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">About Us</a>
+      <a routerLink="/faqs" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">FAQ'S</a>
+      <a routerLink="/contact-us" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']">Contact</a>
+      <a routerLink="/login" [routerLinkActive]="['text-danger', 'fw-bold' , 'mb-2']" (click)="HandleEvent()">LogOut</a>
     </div>
   </div>
 </div>

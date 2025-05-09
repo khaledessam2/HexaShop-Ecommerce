@@ -1,0 +1,11 @@
+.mission, .history {
+  background-color: #f5a623; /* Orange */
+}
+
+.vision, .core-values {
+  background-color: #d3d3d3; /* Gray */
+}
+
+.target-market {
+  background-color: #fff;
+}

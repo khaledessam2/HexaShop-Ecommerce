@@ -1,231 +1,27 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { BehaviorSubject, map } from "rxjs";
 
 @Injectable({
   providedIn:'root'
 })
 export class categoury{
-  clothes=[
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (1).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (2).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (3).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (4).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (5).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (6).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (7).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (8).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (9).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (10).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (11).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (12).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'mens',
-      Image:'../../assets/men/unsplash_dP6g1YJWQcA (13).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (1).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (2).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (3).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (4).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (5).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (6).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (7).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (8).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (9).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (10).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (11).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (12).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'womans',
-      Image:'../../assets/woman/unsplash_dP6g1YJWQcA (13).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (1).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (2).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (3).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (4).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (5).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (6).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (7).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (8).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (9).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (10).png',
-      price:120,
-      name:'Classic Spring'
-    },
-    {
-      categoury:'kids',
-      Image:'../../assets/kid/unsplash_dP6g1YJWQcA (11).png',
-      price:120,
-      name:'Classic Spring'
-    },
-  ]
+  constructor(private Http:HttpClient){}
+  product = new BehaviorSubject<any>(null);
+  baseUrl:string='https://depi-frontend-default-rtdb.firebaseio.com/';
+  products:any[]=[] ;
+  getProducts(){
+    return this.Http.get(`${this.baseUrl}clothes.json`).pipe(map((data:any)=>{
+      // tranform data
+      for(let product in data){
+        if(data.hasOwnProperty(product)){
+          this.products.push({...data[product]})
+        }
+      }
+      return this.products
+    }))
+  }
+  emitProduct(data:any){
+    this.product.next(data)
+  }
 }

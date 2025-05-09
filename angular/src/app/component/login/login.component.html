@@ -1,0 +1,16 @@
+<form class="container py-4 row mx-auto gap-4 shadow my-4" #login="ngForm" (ngSubmit)="LoginData(login)">
+  <h3>{{isLogin ? "Login Here" : "Sign up"}}</h3>
+  <div class="col-12">
+    <label for="email">Email</label>
+    <input type="text" class="form-control mb-3" name="email" id="email" ngModel required email>
+  </div>
+  <div class="col-12">
+    <label for="password">Password</label>
+    <input type="password" class="form-control mb-3" name="password" id="password" ngModel required>
+  </div>
+  <input type="submit" class="form-control btn btn-dark" [value]="isLogin ? 'login' : 'Sign Up'" [disabled]="login.invalid">
+  <h6> {{ isLogin ? "Do not have an account yet ?" : "Already have an Account ?" }}
+    <span  style="color: blue;" role="button" (click)="SwitchedMode()">{{isLogin ? "Resiter Here":"Log in"}}</span>
+  </h6>
+</form>
+

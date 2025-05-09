@@ -1,6 +1,7 @@
 <div>
   <div class="row text-light justify-content-center" style="height: 563px">
-    <div class="col-6 hexa-purchase">
+    <!-- left -->
+    <div class="col-6 hexa-purchase hidden-box from-left">
       <div class="overflow"></div>
       <div class="d-flex flex-column purchase-box">
         <h1>We Are Hexashop</h1>
@@ -8,11 +9,13 @@
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry
         </span>
-        <button class="button">Purchase Now</button>
+        <button class="button" [routerLink]="'/landing'">Purchase Now</button>
       </div>
     </div>
+
+    <!-- right -->
     <div class="col-5 row gap-4 justify-content-center">
-      <div class="col-5 hexa-purchase hexa-purchase-one">
+      <div class="col-5 hexa-purchase hexa-purchase-one hidden-box from-right">
         <div class="overflow"></div>
         <div class="d-flex flex-column purchase-box w-100 text-center">
           <h1>Women</h1>
@@ -22,7 +25,8 @@
           </button>
         </div>
       </div>
-      <div class="col-5 hexa-purchase hexa-purchase-two">
+
+      <div class="col-5 hexa-purchase hexa-purchase-two hidden-box from-right">
         <div class="overflow"></div>
         <div class="d-flex flex-column purchase-box w-100 text-center">
           <h1>Men</h1>
@@ -32,7 +36,8 @@
           </button>
         </div>
       </div>
-      <div class="col-5 hexa-purchase hexa-purchase-three">
+
+      <div class="col-5 hexa-purchase hexa-purchase-three hidden-box from-right">
         <div class="overflow"></div>
         <div class="d-flex flex-column purchase-box w-100 text-center">
           <h1>Kids</h1>
@@ -42,7 +47,8 @@
           </button>
         </div>
       </div>
-      <div class="col-5 hexa-purchase">
+
+      <div class="col-5 hexa-purchase hidden-box from-right">
         <div class="overflow"></div>
         <div class="d-flex flex-column purchase-box w-100 text-center">
           <h1>Accessories</h1>
@@ -53,66 +59,164 @@
     </div>
   </div>
 
-  <!-- mens section -->
-  <div class="mx-5 px-3 mt-5">
-    <h2>Men’s Latest</h2>
-    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
-    <div class="slider">
-      <div class="card mt-2" style="width: 18rem;" *ngFor="let men of mensClothes">
-        <img [src]="men.Image" class="card-img-top" height="300px">
-        <div class="card-body p-3">
-          <h5 class="card-title mb-3">{{men.name}}</h5>
-          <div class="d-flex align-items-center justify-content-between">
-            <p class="card-text">${{men.price}}</p>
-            <div class="d-flex align-items-center gap-2">
-              <mat-icon style="color: red;">favorite</mat-icon>
-              <mat-icon>shopping_cart</mat-icon>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <mat-spinner *ngIf="!loadData" class="mx-auto mt-5"></mat-spinner>
 
-  <!-- womans section -->
-  <div class="mx-5 px-3 mt-5">
-    <h2>Woman's Latest</h2>
-    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
-    <div class="slider">
-      <div class="card mt-2" style="width: 18rem;" *ngFor="let woman of womansClothes">
-        <img [src]="woman.Image" class="card-img-top" height="300px">
-        <div class="card-body p-3">
-          <h5 class="card-title mb-3">{{woman.name}}</h5>
-          <div class="d-flex align-items-center justify-content-between">
-            <p class="card-text">${{woman.price}}</p>
-            <div class="d-flex align-items-center gap-2">
-              <mat-icon style="color: red;">favorite</mat-icon>
-              <mat-icon>shopping_cart</mat-icon>
+<div *ngIf="loadData">
+    <!-- mens section -->
+    <div class="mx-lg-5 px-lg-3 mt-5">
+      <h2>Men’s Latest</h2>
+      <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+      <div class="slider">
+        <div class="card mt-2" style="width: 18rem;cursor:pointer" *ngFor="let men of mensClothes" [routerLink]="'/product/'+men.id">
+          <img [src]="men.image" class="card-img-top" height="300px">
+          <div class="card-body p-3">
+            <h5 class="card-title mb-3">{{men.name}}</h5>
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="card-text">${{men.price}}</p>
+              <div class="d-flex align-items-center gap-2">
+                <mat-icon style="color: red;">favorite</mat-icon>
+                <mat-icon>shopping_cart</mat-icon>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Kid's Section -->
-  <div class="mx-5 px-3 mt-5">
-    <h2>Kid's Latest</h2>
-    <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
-    <div class="slider">
-      <div class="card mt-2" style="width: 18rem;" *ngFor="let Kid of kidsClothes">
-        <img [src]="Kid.Image" class="card-img-top" height="300px">
-        <div class="card-body p-3">
-          <h5 class="card-title mb-3">{{Kid.name}}</h5>
-          <div class="d-flex align-items-center justify-content-between">
-            <p class="card-text">${{Kid.price}}</p>
-            <div class="d-flex align-items-center gap-2">
-              <mat-icon style="color: red;">favorite</mat-icon>
-              <mat-icon>shopping_cart</mat-icon>
+
+    <!-- womans section -->
+    <div class="mx-lg-5 px-lg-3 mt-5">
+      <h2>Woman's Latest</h2>
+      <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+      <div class="slider">
+        <div class="card mt-2" style="width: 18rem;cursor:pointer" *ngFor="let woman of womansClothes" [routerLink]="'/product/'+woman.id">
+          <img [src]="woman.image" class="card-img-top" height="300px">
+          <div class="card-body p-3">
+            <h5 class="card-title mb-3">{{woman.name}}</h5>
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="card-text">${{woman.price}}</p>
+              <div class="d-flex align-items-center gap-2">
+                <mat-icon style="color: red;">favorite</mat-icon>
+                <mat-icon>shopping_cart</mat-icon>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- Kid's Section -->
+    <div class="mx-lg-5 px-lg-3 mt-5">
+      <h2>Kid's Latest</h2>
+      <span class="my-3 d-block">Lorem Ipsum is simply dummy text of the printingand typesetting industry</span>
+      <div class="slider">
+        <div class="card mt-2" style="width: 18rem;cursor:pointer" *ngFor="let Kid of kidsClothes" [routerLink]="'/product/'+Kid.id">
+          <img [src]="Kid.image" class="card-img-top" height="300px">
+          <div class="card-body p-3">
+            <h5 class="card-title mb-3">{{Kid.name}}</h5>
+            <div class="d-flex align-items-center justify-content-between">
+              <p class="card-text">${{Kid.price}}</p>
+              <div class="d-flex align-items-center gap-2">
+                <mat-icon style="color: red;">favorite</mat-icon>
+                <mat-icon>shopping_cart</mat-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <section class="mx-lg-5 px-lg-3 mt-5">
+        <div class="d-flex gap-5 flex-column flex-xl-row">
+            <div class="d-flex align-items-center w-100">
+                <div>
+                    <h1 class="fw-bold mb-3">Explore Our Products</h1>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <p>
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsuLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    </p>
+                    <p>
+                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsuLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsu
+                    </p>
+                </div>
+            </div>
+            <div class="">
+                <div class="row g-3">
+                    <div class="col-6 d-flex position-relative">
+                        <div class="w-100 position-relative">
+                            <img src="assets/about us/Rectangle 98.png" class="img-fluid w-100" alt="Leather Bags">
+                            <div class="position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-50"></div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-center text-black">
+                                <h5 class="fw-bold">Leather Bags</h5>
+                                <p>Lorem Ipsum is simply dummy text</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 d-flex">
+                        <img src="assets/about us/Rectangle 98 (1).png" class="img-fluid w-100" alt="Normal Image">
+                    </div>
+                    <div class="col-6 d-flex">
+                        <img src="assets/about us/Rectangle 98 (2).png" class="img-fluid w-100" alt="Normal Image">
+                    </div>
+                    <div class="col-6 d-flex position-relative">
+                        <div class="w-100 position-relative">
+                            <img src="assets/about us/Rectangle 98 (3).png" class="img-fluid w-100" alt="Different Types">
+                            <div class="position-absolute w-100 h-100 top-0 start-0 bg-white bg-opacity-50"></div>
+                            <div class="position-absolute top-50 start-50 translate-middle text-center text-black">
+                                <h5 class="fw-bold">Different Types</h5>
+                                <p>Lorem Ipsum is simply dummy text</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--social media-->
+    <section class="mx-lg-5 px-lg-3 mt-5">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="fw-bold">Social Media</h2>
+                    <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103.png" class="img-fluid rounded object-fit-cover" alt="Image 1">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103 (1).png" class="img-fluid rounded object-fit-cover" alt="Image 2">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103 (2).png" class="img-fluid rounded object-fit-cover" alt="Image 3">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103 (3).png" class="img-fluid rounded object-fit-cover" alt="Image 4">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103 (4).png" class="img-fluid rounded object-fit-cover" alt="Image 5">
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="ratio ratio-1x1">
+                        <img src="assets/social media/Rectangle 103 (5).png" class="img-fluid rounded object-fit-cover" alt="Image 6">
+                    </div>
+                </div>
+            </div>
+      </section>
 
 </div>

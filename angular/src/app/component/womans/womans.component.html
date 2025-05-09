@@ -1,1 +1,122 @@
-<p>womans works!</p>
+<section>
+  <mat-spinner *ngIf="!loadData" class="mx-auto my-5"></mat-spinner>
+  <!-- Women's Latest Section -->
+  <section class="container py-4" *ngIf="loadData">
+    <h2 class="fw-bold mb-3">Women's Latest</h2>
+    <p class="text-muted mb-4">
+      Lorem ipsum is simply dummy text of the printing and typesetting industry.
+    </p>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mb-4" *ngFor="let item of womans | slice:0:6" [routerLink]="'/product/'+item.id">
+        <app-card [data]="item"></app-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="container py-4" *ngIf="loadData">
+    <h2 class="fw-bold mb-3">Featured</h2>
+    <p class="text-muted mb-4">
+      Lorem ipsum is simply dummy text of the printing and typesetting industry.
+    </p>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mb-4" *ngFor="let item of womans | slice:7:-1" [routerLink]="'/product/'+item.id">
+        <app-card [data]="item"></app-card>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="py-5 text-white position-relative"
+    style="background: url('assets/kid/unsplash_dP6g1YJWQcA\ \(1\).png') no-repeat center center/cover"
+  >
+    <div
+      class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"
+    ></div>
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-md-3">
+          <img
+            src="assets/kid/unsplash_dP6g1YJWQcA (2).png"
+            alt="Child 1"
+            class="img-fluid rounded"
+            style="height: 400px; object-fit: cover; width: 100%; opacity: 0.8"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            src="assets/kid/unsplash_dP6g1YJWQcA (6).png"
+            alt="Child 2"
+            class="img-fluid rounded"
+            style="height: 400px; object-fit: cover; width: 100%; opacity: 0.8"
+          />
+        </div>
+        <div class="col-md-6 p-4">
+          <h2 class="text-center">Kid's Collection</h2>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book . It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+          <p>
+            It was popularised in the 1960s with the release of Letraset sheets
+            containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem
+            IpsuLorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book. It has survived not
+            only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged
+          </p>
+          <div class="d-flex justify-content-center mt-4">
+            <button class="btn btn-outline-light" routerLink="/kids">Discover More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-5" *ngIf="loadData">
+    <h2 class="fw-bold mb-3">Casual</h2>
+    <p class="text-muted mb-4">
+      Lorem ipsum is simply dummy text of the printing and typesetting industry.
+    </p>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mb-4" *ngFor="let item of womans | slice:5" [routerLink]="'/product/'+item.id">
+        <app-card [data]="item"></app-card>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 text-white position-relative" style="background: url('assets/men/unsplash_dP6g1YJWQcA\ \(5\).png') no-repeat center center/cover;">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-50"></div>
+    <div class="container position-relative">
+        <div class="row align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-3">
+                <img src="assets/men/unsplash_dP6g1YJWQcA (6).png" alt="Child 1" class="img-fluid rounded" style="height: 400px; object-fit: cover; width: 100%; opacity: 0.8;">
+            </div>
+            <div class="col-md-3">
+                <img src="assets/men/unsplash_dP6g1YJWQcA (8).png" alt="Child 2" class="img-fluid rounded" style="height: 400px; object-fit: cover; width: 100%; opacity: 0.8;">
+            </div>
+            <!-- Text Section -->
+            <div class="col-md-6 p-4 ">
+                <h2 class="text-center">Man's Collection</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+                    . It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                    <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsuLorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged</p>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-light" routerLink="/mens">Discover More</button>
+                        </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</section>
