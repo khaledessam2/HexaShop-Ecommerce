@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/Auth.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -9,8 +9,11 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   isLogin: boolean = true;
+  ngOnInit(): void {
+      this.Auth.handleEvent(false)
+  }
   constructor(private Auth: AuthService ,private router : Router , private toastr: ToastrService) {}
   LoginData(login: any) {
     if (this.isLogin) {

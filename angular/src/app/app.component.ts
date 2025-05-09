@@ -15,9 +15,9 @@ export class AppComponent implements OnInit  {
       next:(value:any)=>{
           localStorage.setItem('login', value);
           this.login=localStorage.getItem('login') === 'true'
-        }
-      })
-      this.login=localStorage.getItem('login') === 'true'
-      console.log(this.login)
+      }
+    })
+    this.login=localStorage.getItem('login') === 'true'
+
   }
 }
