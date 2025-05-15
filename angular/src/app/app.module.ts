@@ -21,7 +21,7 @@ import { ContactUsComponent } from './component/contact-us/contact-us.component'
 import { SingleProductComponent } from './component/single-product/single-product.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { LoginComponent } from './component/login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -30,11 +30,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     ShoppingCartComponent,
     FAQSComponent,
-    // TrackingOrderComponent,
+    TrackingOrderComponent,
     HomeComponent,
     NavbarComponent,
     LandingPageComponent,
-    MensComponent,
+    MensComponent, 
     WomansComponent,
     KidsComponent,
     FooterComponent,
@@ -51,7 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressSpinnerModule,
     FormsModule ,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

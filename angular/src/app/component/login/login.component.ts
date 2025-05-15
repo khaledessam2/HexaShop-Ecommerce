@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           this.toastr.success('Login succesfully');
           this.router.navigateByUrl("/landing");
-          // this.Auth.isLogin=true
           this.Auth.handleEvent(true)
         },
         error: (errMessage) => {

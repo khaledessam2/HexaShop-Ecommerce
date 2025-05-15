@@ -1,92 +1,64 @@
-<!-- <div>
-  <h2 class="m-0 p-0 fw-bold">Track Your Order</h2>
-  <div class="px-5 pt-4 pb-5 mt-3" style="background-color: #d9d9d9">
-    <h3 class="m-0 p-0 fw-bold">Order Details</h3>
-    <div class="d-flex align-items-center justify-content-between mt-4">
-      <div>
-        <p class="mb-3">
-          July 10,2022 <br />
-          Order No: 5142414241241
-        </p>
-        <p>Order Status: New Order</p>
-        <p>Packages in this Order: 1</p>
-        <p>Total Items: 1</p>
-      </div>
-      <div>
-        <p>Ship to:</p>
-        <p>Lahore Road ,Sheikhupura</p>
-        <p>Payment Information:</p>
-        <p>Credit Card No:2522 2322 5455 2566</p>
-      </div>
-      <div>
-        <p>Order Summary</p>
-        <p>Subtotal: 120$</p>
-        <p>Shipping: 20$</p>
-        <p>Sales Tax: 0$</p>
-        <hr />
-        <div class="d-flex align-items-center gap-5">
-          <span>Total</span>
-          <span>140$</span>
-        </div>
-      </div>
-      <div>
-        <span
-          role="button"
-          class="border border-black mx-auto d-block text-center my-3 fs-5 fw-semibold px-3 py-2"
-          style="width: fit-content"
-          [routerLink]="'/track-order'"
-        >
-          Modify / Cancel Order
-        </span>
-        <span
-          role="button"
-          class="border border-black border-3 mx-auto d-block text-center my-3 fs-5 fw-bold px-3 py-2"
-          style="width: fit-content"
-        >
-          Discover More
-        </span>
-      </div>
-    </div>
+<form class="container" [formGroup]="FormData" (ngSubmit)="FormSubmitted()">
+  <div>
+    <label class="form-label">Country/region <span class="text-danger">*</span></label>
+    <select class="form-select" formControlName="country">
+      <option disabled selected>Open this select menu</option>
+      <option>Eqypt</option>
+      <option>Saudi Arabia</option>
+      <option>Palestine</option>
+    </select>
+    <small class="text-danger" *ngIf="FormData.get('country').invalid && FormData.get('country').touched ">
+      this field is required
+    </small>
   </div>
-
-  <div class="my-5 d-flex align-items-center justify-content-between gap-5">
-    <div class="d-flex align-items-center gap-3">
-      <img
-        src="assets/woman/unsplash_dP6g1YJWQcA (5).png"
-        width="330px"
-        height="430px"
-      />
-      <img
-        src="assets/2111a9bbfc5eb7ced3d26a549ab465cd.jpeg"
-        width="330px"
-        height="430px"
-      />
-    </div>
-    <div>
-      <h3 class="text-center fw-bold mb-3">HEXASHOP's Collection</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem IpsuLorem Ipsum is simply dummy text of the printing and
-        typesetting industry. Lorem Ipsum has been the industry's standard dummy
-        text ever since the 1500s, when an unknown printer took a galley of type
-        and scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged.
-      </p>
-      <span
-      role="button"
-      class="border border-black border-3 mx-auto d-block text-center my-3 fs-5 fw-bold px-3 py-2"
-      style="width: fit-content" [routerLink]="'/landing'"
-    >
-      Discover More
-    </span>
-    </div>
+  <div class="mt-4">
+    <label class="form-label">Full name (First and Last name) <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" placeholder="Enter your name" formControlName="fullName" >
+    <small class="text-danger" *ngIf="FormData.get('fullName').invalid && FormData.get('fullName').touched ">
+      this field is required
+    </small>
   </div>
-</div> -->
+  <div class="mt-4">
+    <label class="form-label">Mobile number <span class="text-danger">*</span></label>
+    <input type="number" class="form-control" placeholder="e.g. 02XXXXXXX" formControlName="mobileNumber" >
+    <small class="text-danger" *ngIf="FormData.get('mobileNumber').invalid && FormData.get('mobileNumber').touched ">
+      this field is required
+    </small>
+  </div>
+  <div class="mt-4">
+    <label class="form-label">Street name <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" placeholder="e.g. Elagamy Elpitash" formControlName="street">
+    <small class="text-danger" *ngIf="FormData.get('street').invalid && FormData.get('street').touched ">
+      this field is required
+    </small>
+  </div>
+  <div class="mt-4">
+    <label class="form-label">City <span class="text-danger">*</span></label>
+    <select class="form-select" formControlName="city">
+      <option disabled selected>Open this select menu</option>
+      <option>Alexandria</option>
+      <option>Cairo</option>
+      <option>Tanta</option>
+    </select>
+    <small class="text-danger" *ngIf="FormData.get('city').invalid && FormData.get('city').touched ">
+      this field is required
+    </small>
+  </div>
+  <div class="mt-4">
+    <label class="form-label">Method Payment <span class="text-danger">*</span></label>
+    <select class="form-select" formControlName="Payment">
+      <option disabled selected>Open this select menu</option>
+      <option>credit card</option>
+      <option>PayPal</option>
+      <option>bank transfer</option>
+    </select>
+    <small class="text-danger" *ngIf="FormData.get('Payment').invalid && FormData.get('Payment').touched ">
+      this field is required
+    </small>
+  </div>
+  <div class="d-flex align-items-center justify-content-end">
+    <input type="Submit" value="Submit Order"
+      class="btn btn-dark mt-5 py-2"
+      [disabled]="FormData.invalid">
+  </div>
+</form>
